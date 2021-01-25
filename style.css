@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Cookie', cursive;
+}
+header{
+    text-align: center;
+    background-color: aqua;
+    padding: 10px;
+    font-size: 40px;
+}
+
+form{
+    display: table;
+    margin-top:40px;
+    font-size: 23px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+form div{
+    width: 40%;
+    margin: 15px;
+    display: inline;
+    /* float: left; */
+}
+
+
+label{
+    /* margin-left: 100px; */
+    /* display: block; */
+    background-color: beige;
+    margin: 4px;
+    padding: 3px;
+}
+
+input{
+    /* background-color: bisque; */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+#add{
+    /* margin: 5px; */
+    background-color: whitesmoke;
+    width: 70px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+#add:hover{
+    background-color: rgb(226, 226, 226);
+}
+
+#read_options{
+    font-size: 13px;
+    padding: 8px 6px 8px 6px;
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  #read_options .select{
+    width: 120%;
+    background:url('arrow.png') no-repeat;
+    background-position:80% center;
+  }
+  
+  #read_options .select select{
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 120%;
+    position: relative;
+    z-index: 10;
+    font-size: 1em;
+  }
+
+.database table{
+    font-size: 33px;
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 80px;
+    border-collapse: collapse;
+    min-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* border-radius: 18px; */
+}
+
+table thead tr {
+    background-color: beige;
+    color: black;
+    text-align: left;
+}
+
+.cross{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid darksalmon;
+}
+
+.tableBtn{
+    background-color: lightgreen;
+    width: 70px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    /* font-weight: bold;
+    font-family:cursive; */
+}
+
+
+@media screen and (max-width:1070px){
+
+    label{
+        background-color: beige;
+        margin: auto;
+        padding: 3px;
+    }
+
+    #add{
+        /* margin: 5px; */
+        background-color: whitesmoke;
+        width: 70px;
+        height: 35px;
+        border: 1px solid black;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        left: 50%;
+        margin-top: 20px;
+    }
+
+    form div{
+        width: 20%;
+        /* margin: 15px; */
+        display: inline;
+        /* float: left; */
+    }
+}
