@@ -5,17 +5,24 @@ let inputForm = document.querySelector('.inputBookForm')
 let tbody = document.querySelector('tbody')
 
 
-
-
-
 let tableData = document.createElement('td')
 
+//problems
+//for loop running more than once
+//2.delete(cross) button is not working of js injected code
+    //2(a) delete button should also delete from myLibrary
+//3. fields are required(but not working)
+    //3(a). No. of pages should be a number
+//4. ReadOrNot button is not working
 
-deleteIcon.forEach((Icon) => Icon.addEventListener('click',() =>{
-  //remove sinle row for which cross-icon is clicked
-  console.log(Icon.parentElement.title)
-  Icon.parentElement.remove()
-}))
+  deleteIcon.forEach((Icon) => Icon.addEventListener('click',() =>{
+    //remove sinle row for which cross-icon is clicked
+    console.log(Icon.parentElement.title)
+    Icon.parentElement.remove()
+  }))
+
+
+
 
 tableBtn.forEach(Btn => Btn.addEventListener('click',() => {
   if (Btn.textContent == "Read"){
@@ -32,18 +39,24 @@ tableBtn.forEach(Btn => Btn.addEventListener('click',() => {
 
 
 let myLibrary = [
+  //   {
+  //     title:"",
+  //     author:"",
+  //     pages:0,
+  //     readOrNot:""
+  // },
   {
-      title:"Hairy tale",
-      author:"Me",
-      pages:89,
-      readOrNot:"read"
-  },
-    {
       title:"Fairy tale",
-      author:"You",
-      pages:896,
-      readOrNot:"Not read"
+      author:"Igor Safranov",
+      pages:89,
+      readOrNot:"Read"
   },
+  //   {
+  //     title:"Fairy tale",
+  //     author:"You",
+  //     pages:896,
+  //     readOrNot:"Not Read"
+  // },
 ];
 
 function Book(title,author,pages,readOrNot) {
@@ -53,9 +66,14 @@ function Book(title,author,pages,readOrNot) {
   this.readOrNot = readOrNot;
 }
 
+let bookInMyLibrary = true;
+
 function addBookToLibrary(title,author,pages,readOrNot) {
   const book = new Book(title,author,pages,readOrNot)
-  myLibrary.push(book)
+  bookExists(title)
+  if(!bookInMyLibrary){
+    myLibrary.push(book)
+  }
 }
 
 function removeBookFromLibrary(book) {
@@ -65,18 +83,55 @@ function removeBookFromLibrary(book) {
 
 function handleAddBtn(e){
   e.preventDefault();
+  console.log(myLibrary)
   addBookToLibrary(inputForm[0].value,inputForm[1].value,+inputForm[2].value,inputForm[3].value)
   inputForm.reset()
-  // console.log(myLibrary)
-  // add objects to the screen(table)
   addObjToScreen()
 
 }
 
-function addObjToScreen(){
-    console.log(myLibrary)
+
+function bookExists(bookTitle){
+  for(let i=0;i<myLibrary.length;i++){
+    if(myLibrary[i].title === bookTitle){
+      bookInMyLibrary = true
+      console.log(bookTitle + " in myLibrary")
+    }else{
+      bookInMyLibrary = false
+      console.log(bookTitle + " not in myLibrary")
+    }
+  }
 }
 
 
- addBtn.addEventListener('click',handleAddBtn)
 
+let table = "";
+
+function addObjToScreen(){
+    // console.log(myLibrary)
+      for(let i=0;i<myLibrary.length ;i++){
+        if(!bookInMyLibrary){
+          table +="<tr>";
+          table += "<td>" +myLibrary[i].title+"</td>";
+          table += "<td>" +myLibrary[i].author+"</td>";
+          table += "<td>" +myLibrary[i].pages+"</td>";
+          table += "<td> <button class='tableBtn'> " +myLibrary[i].readOrNot+"</button> </td>";
+          table += "<td class='cross'>&#10006</td>"
+          table += "</tr>";
+        }else{
+          return
+        }
+        // bookInMyLibrary = true
+      }
+      tbody.innerHTML = table
+      console.log(myLibrary.length)
+      console.log(myLibrary)
+    }
+
+
+
+
+
+
+addObjToScreen()
+ addBtn.addEventListener('click',handleAddBtn)

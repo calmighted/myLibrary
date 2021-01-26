@@ -12,6 +12,8 @@ header{
     background-color: aqua;
     padding: 10px;
     font-size: 40px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 form{
