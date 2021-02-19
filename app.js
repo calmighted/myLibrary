@@ -45,12 +45,12 @@ let myLibrary = [
   //     pages:0,
   //     readOrNot:""
   // },
-  {
-      title:"Fairy tale",
-      author:"Igor Safranov",
-      pages:89,
-      readOrNot:"Read"
-  },
+  // {
+  //     title:"Fairy tale",
+  //     author:"Igor Safranov",
+  //     pages:89,
+  //     readOrNot:"Read"
+  // },
   //   {
   //     title:"Fairy tale",
   //     author:"You",
@@ -66,19 +66,18 @@ function Book(title,author,pages,readOrNot) {
   this.readOrNot = readOrNot;
 }
 
-let bookInMyLibrary = true;
+// let bookInMyLibrary = true;
 
 function addBookToLibrary(title,author,pages,readOrNot) {
   const book = new Book(title,author,pages,readOrNot)
-  bookExists(title)
-  if(!bookInMyLibrary){
-    myLibrary.push(book)
-  }
+  // bookExists(title)
+  myLibrary.push(book)
+  
 }
 
-function removeBookFromLibrary(book) {
-    //remove that book for which cross-icon is clicked from the mylibrary
-  }
+// function removeBookFromLibrary(book) {
+//     //remove that book for which cross-icon is clicked from the mylibrary
+//   }
 
 
 function handleAddBtn(e){
@@ -91,39 +90,35 @@ function handleAddBtn(e){
 }
 
 
-function bookExists(bookTitle){
-  for(let i=0;i<myLibrary.length;i++){
-    if(myLibrary[i].title === bookTitle){
-      bookInMyLibrary = true
-      console.log(bookTitle + " in myLibrary")
-    }else{
-      bookInMyLibrary = false
-      console.log(bookTitle + " not in myLibrary")
-    }
-  }
-}
+// function bookExists(bookTitle){
+//   for(let i=0;i<myLibrary.length;i++){
+//     if(myLibrary[i].title === bookTitle){
+//       bookInMyLibrary = true
+//       console.log(bookTitle + " in myLibrary")
+//     }else{
+//       bookInMyLibrary = false
+//       console.log(bookTitle + " not in myLibrary")
+//     }
+//   }
+// }
 
 
 
-let table = "";
+// const table;
 
 function addObjToScreen(){
+  tbody.innerHTML = ""
     // console.log(myLibrary)
       for(let i=0;i<myLibrary.length ;i++){
-        if(!bookInMyLibrary){
-          table +="<tr>";
-          table += "<td>" +myLibrary[i].title+"</td>";
-          table += "<td>" +myLibrary[i].author+"</td>";
-          table += "<td>" +myLibrary[i].pages+"</td>";
-          table += "<td> <button class='tableBtn'> " +myLibrary[i].readOrNot+"</button> </td>";
-          table += "<td class='cross'>&#10006</td>"
-          table += "</tr>";
-        }else{
-          return
-        }
-        // bookInMyLibrary = true
+          const tabledata =`<tr>
+                   <td> ${myLibrary[i].title} </td>
+                   <td> ${myLibrary[i].author} </td>
+                   <td> ${myLibrary[i].pages} </td>
+                   <td> <button class='tableBtn'> ${myLibrary[i].readOrNot} </button> </td>
+                   <td class='cross'>&#10006</td>
+                   </tr>`;
+                   tbody.insertAdjacentHTML('afterbegin',tabledata);
       }
-      tbody.innerHTML = table
       console.log(myLibrary.length)
       console.log(myLibrary)
     }
