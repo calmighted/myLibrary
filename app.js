@@ -65,17 +65,12 @@ function addObjToScreen() {
 	}
 	let tableBtn = document.querySelectorAll(".tableBtn");
 	let deleteIcon = document.querySelectorAll(".cross");
-	// console.log(deleteIcon)
 	tableBtn.forEach((Btn) =>
 		Btn.addEventListener("click", () => {
 			if (Btn.textContent == "Read") {
 				Btn.textContent = "Not Read";
-				Btn.style.backgroundColor = "crimson";
-				Btn.style.color = "white";
 			} else {
 				Btn.textContent = "Read";
-				Btn.style.backgroundColor = "lightgreen";
-				Btn.style.color = "black";
 			}
 		})
 	);
